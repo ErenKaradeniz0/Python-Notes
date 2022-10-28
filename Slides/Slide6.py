@@ -1,6 +1,3 @@
-from re import A
-
-
 def turtle(x):
     print("  _____")
     print(" /", x, x, "\\/*)")
