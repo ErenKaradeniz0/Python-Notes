@@ -1,6 +1,3 @@
-from re import X
-
-
 def bmi_calc(weight, height):
     height_sq=(height/100)**2
     bmi = weight/height_sq
