@@ -8,5 +8,3 @@ not (x < y and x < z)
 
 # true false true true false
 
-
-print(both_odd(55, 1))
