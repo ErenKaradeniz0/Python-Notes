@@ -1,4 +1,5 @@
 import random
+import time
 
 # x, y, z = 42, 17, 25
 
@@ -14,40 +15,53 @@ import random
 # print(both_odd(55, 1))
 
 
+def seven_game():
+    def create_player_list():
+        player_list = [*range(1, int(input("enter number of players :"))+1, 1)]
+        for index in range(0, len(player_list)):
+            player_list[index] = input("Enter player name : ")
+        return player_list
 
-def seven_game(Names):
-    Player1, player2, player3, player4 = 0, 0, 0, 0
-    while (True):
-        count = 0
-        index = random.randint(0, 3)
-        print(Names[index], " : ", end=" ")
-        for i in range(1, 11):
-            number = random.randint(1, 31)
-            print(number, end=" ")
-            if (number == 7):
-                print(Names[index], "Wins !!!")
-                count += 1
+    player_list = create_player_list()
 
-        if (count > 2):
-            print("\n")
-            print(Names[index], "Wins !!!")
-            print()
-            if (Names[index] == "Player1"):
-                Player1 += 1
-            elif (Names[index] == "Player2"):
-                player2 += 1
-            elif (Names[index] == "Player3"):
-                player3 += 1
-            elif (Names[index] == "Player4"):
-                player4 += 1
-
-            if (Player1 > 2 or player2 > 2 or player4 > 2 or player3 > 2):
-                print("Scores : \nPlayer1 : ", Player1, "\nPlayer2 : ", player2,
-                      "\nPlayer3 : ", player3, "\nPlayer4 : ", player4)
+    # initialize first values
+    for i in range(0, len(player_list)):
+        player_list_in = [*range(0, len(player_list), 1)]
+        for index in range(0, len(player_list_in)):
+            player_list_in[index] = "player"+str(index+1)
+    winner_not_found = True
+    while (winner_not_found):
+        for index in range(0, len(player_list)):
+            count = 0
+            # time.sleep(0.02)
+            print(player_list_in[index], " : |", end=" ")
+            for i in range(0, 3):
+                number = random.randint(0, 9)
+                print(number, end=" ")
+                if (number == 7):
+                    count += 1
+            print("|")
+            if (count > 2):
+                print(player_list[index], "Wins !!!")
+                winner_not_found = False
                 break
+
+            # for 3 rounds delete the break statement
+            # break
+            # if (player_list[index] == "Player1"):
+            #     Player1 += 1
+            # elif (player_list[index] == "Player2"):
+            #     player2 += 1
+            # elif (player_list[index] == "Player3"):
+            #     player3 += 1
+            # elif (player_list[index] == "Player4"):
+            #     player4 += 1
+
+            # if (Player1 > 2 or player2 > 2 or player4 > 2 or player3 > 2):
+            #     print("Scores : \nPlayer1 : ", Player1, "\nPlayer2 : ", player2,
+            #           "\nPlayer3 : ", player3, "\nPlayer4 : ", player4)
+            #     break
         print()
 
 
-Names = ["Player1", "Player2", "Player3", "Player4"]
-
-seven_game(Names)
+seven_game()
