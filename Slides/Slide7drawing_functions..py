@@ -15,10 +15,10 @@ def circles():
 
 def draw_car(p, x, y, size):
     panel = DrawingPanel(260, 200, background="light gray")
-    panel.fill_rect(x, y, size, size/2, "black")
-    panel.fill_oval(x+size/10, y+size/10*4, size/5, size/5, "red")
-    panel.fill_oval(x+size/10*7, y+size/10*4, size/5, size/5, "red")
-    panel.fill_rect(x+size/10*7, y+size/10, size/10*3, size/5, "cyan")
+    panel.fill_rect(x, y, size, size/2, "green")
+    panel.fill_oval(x+size/10, y+size/10*4, size/5, size/5, "black")
+    panel.fill_oval(x+size/10*7, y+size/10*4, size/5, size/5, "black")
+    panel.fill_rect(x+size/10*7, y+size/10, size/10*3, size/5, "dark")
 
 
 def my_function_top():
@@ -41,10 +41,9 @@ def my_function_bottom():
 
 def cars():
     panel = DrawingPanel(260, 200, background="light gray")
-    draw_car(panel, 10, 30, 100)
-    draw_car(panel, 150, 10, 50)
     for i in range(0, 260, 50):
-        draw_car(panel, 10+i, 130, 40)
+        draw_car(panel, 10+i, 130, 80)
+        panel.sleep(500)
 
 
 def animate(NUM_CIRCLES):
@@ -54,9 +53,13 @@ def animate(NUM_CIRCLES):
         panel.sleep(250)
         panel.draw_oval(250-15*i, 15*i, 40, 40)
         panel.sleep(250)
-        panel.draw_oval(15*i,250- 15*i, 40, 40)
+        panel.draw_oval(15*i, 250 - 15*i, 40, 40)
         panel.sleep(250)
-        panel.draw_oval(250-15*i,250- 15*i, 40, 40)
+        panel.draw_oval(250-15*i, 250 - 15*i, 40, 40)
         panel.sleep(100)
 
-animate(14)
+
+# animate(14)
+# worm()
+# circles()
+cars()
