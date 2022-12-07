@@ -1,5 +1,5 @@
 def q1():
-    name = open("Python-Notes/Slides/weather.txt")
+    name = open("text/weather.txt")
 
     lines = name.read().split()
     prev = float(lines[0])
@@ -11,7 +11,7 @@ def q1():
 
 
 def q2():
-    file = open("Python-Notes/Slides/gasprice.txt")
+    file = open("text/gasprices.txt")
     belgium = 0
     usa = 0
     count = 0
@@ -24,4 +24,6 @@ def q2():
     print("Belgium average:", (belgium/count), "Ş/gal")
     print("USA average:", (usa/count), "Ş/gal")
 
+q1()
+print("\n")
 q2()
